@@ -1,0 +1,35 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local development settings
+*.env
+
+# Secret key file
+*.secret_key
+
+# Database files
+*.sqlite3
+
+# Log files
+*.log
+
+# Ignore Django migration files
+**/migrations/
+
+# Ignore environment configuration files
+.env
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Exclude everything in the static folder except CSS, JS, and image files
+/static/*
+!/static/**/*.css
+!/static/**/*.js
+!/static/**/*.jpg
+!/static/**/*.jpeg
+!/static/**/*.png
+!/static/**/*.gif

@@ -1,0 +1,27 @@
+.login-card {
+    backdrop-filter: blur(10px); /* Adds blurry effect to the card */
+    background-color: rgba(255, 255, 255, 0.8); /* Background color with opacity */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Border for the card */
+    border-radius: 10px; /* Border radius for rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle lift effect */
+    padding: 20px; /* Padding inside the card */
+}
+
+.card-title {
+    font-size: 24px; /* Adjust the font size of the card title */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Change primary button color */
+    border-color: #007bff; /* Change primary button border color */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Change primary button color on hover */
+    border-color: #0056b3; /* Change primary button border color on hover */
+}
+.logo {
+    margin: 6px 8px 5px 0px;
+  }
+
+
