@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('bg2.jpg'); /* Replace with your background image */
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.container {
+    position: relative;
+}
+
+.content {
+    background-color: rgba(255, 255, 255,1); /* Semi-transparent white background */
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    
+    
+}
+.science-container {
+    width: 150px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px; /* Add some margin between the boxes */
+}
+
+.rounded-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+}
+
+#chp1,#chp2,#chp3{
+    font-size:30px
+}
+
+
+
+
+
+.rounded-button {
+    background-color: #007BFF; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+
+.science-text {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+
+.rounded-button:hover {
+    background-color: #0056b3; /* Button background color on hover */
+}
+/*.science-text {
+    position: absolute; /* Position the "Science" text absolutely 
+    top: -10%; /* Vertically center the text 
+    transform: translateY(-50%); /* Offset it by half of its own height 
+    font-size: 40px; /* Adjust the font size as needed 
+}*/
+
+

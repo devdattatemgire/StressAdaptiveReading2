@@ -1,0 +1,270 @@
+.login-card {
+    backdrop-filter: blur(10px); /* Adds blurry effect to the card */
+    background-color: rgba(255, 255, 255, 0.8); /* Background color with opacity */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Border for the card */
+    border-radius: 10px; /* Border radius for rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle lift effect */
+    padding: 20px; /* Padding inside the card */
+}
+
+.card-title {
+    font-size: 24px; /* Adjust the font size of the card title */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Change primary button color */
+    border-color: #007bff; /* Change primary button border color */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Change primary button color on hover */
+    border-color: #0056b3; /* Change primary button border color on hover */
+}
+.logo {
+    margin: 6px 8px 5px 0px;
+  }
+
+
+  .flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+    margin-top: 35px;
+  }
+  
+  .card {
+    width: 18rem;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .card .card-body {
+    position: relative;
+    z-index: 1;
+    color: black;
+    text-align: center;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+  }
+  
+  .card:hover .card-body {
+    opacity: 1;
+  }
+  
+  .card .card-body .cardin {
+    padding: 10px;
+  }
+  
+  .cardin{
+    display: flex ;
+    flex-direction: column;
+  }
+  
+  .card .card-body .cardin a {
+    text-decoration: none;
+    color: white;
+    background-color: #b0883e;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .card .card-body .cardin a:hover {
+    background-color: #7a612c;
+  }
+  
+  
+  
+      .hero {
+        margin-left: 80px;
+        margin-right: 10px;
+      }
+  
+      .logo {
+        margin: 6px 8px 5px 0px;
+      }
+      .logof{
+        margin-left: 1.5rem;
+      }
+  
+      .btn-color {
+        background-color: #D8AD5C;
+        color: #312008;
+      }
+  
+      .btn-color:hover {
+        background-color: #b0883e;
+        color: #ffffff;
+      }
+  
+      .insta-gradient {
+        background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+  
+      .nav-bg {
+    background-color: rgba(243, 239, 236, 0.1);
+    backdrop-filter: blur(4px); /* Add the backdrop-filter property */
+    -webkit-backdrop-filter: blur(4px); /* Add the -webkit-backdrop-filter property for Safari */
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .nav-bg .navbar-nav .nav-link {
+    opacity: 1; /* Adjust the opacity value as needed */
+  }
+  
+      /* Fade-in Animation */
+      .fade-in {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease-in-out; /* Adjust the duration as desired */
+      }
+  
+      .fade-in.animate {
+        opacity: 1;
+        visibility: visible;
+      }
+  
+      /* plans */
+      .pricing-plan {
+    display: flex;
+    padding: 10px;
+    flex-basis: 300px;
+    height: 40vh;
+    flex-direction: column;
+    gap: 10px;
+      background-color: #e1b96e
+    ;
+    border-radius: 5px;
+    box-shadow: 0 0 200px rgba(0, 0, 0, 0.3);
+    position: relative;
+  }
+  
+  .pricing-plan::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px; /* Adjust the height of the colored portion */
+    background-color: #b0883e; /* Specify the desired color */
+    border-radius: 5px 5px 0 0;
+    z-index: 0;
+  }
+  
+  .pricing-plan:hover{
+  
+    transform: scale(1.1); /* Add the desired transformation */
+    transition: transform 0.3s ease; /* Specify the transition property and duration */
+    /* transition: cubic-bezier(0.455, 0.03, 0.515, 0.955); */
+  }
+  
+     li{
+        list-style: none;
+     }
+  
+     .plan-button{
+      margin-bottom: 20px;
+      border: none;
+      color: #ffffff;
+      border-radius: 5px;
+      padding: 10px;
+      font-family: 'Sono', sans-serif ;
+      font-weight: bold;
+      font-size:larger;
+      background-color: #b0883e;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      margin-top: 0px;
+     }
+     .plan-button:hover {
+    transform: scale(1.1);
+  }
+     .plan-price{
+      font-size: 3rem;
+      font-weight: bolder;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     }
+     .plan-title{
+      font-weight: bolder;
+      margin-left: 5px;
+      color: #ffffff;
+      font-size: x-large;
+      align-self: flex-start;
+      position: relative; /* Add position relative to the text container */
+    z-index: 1; /* Bring the text container to the front */
+    
+     }
+     .inner{
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      align-items: center;
+      gap: 8px;
+  
+     }
+  
+  
+  
+     .outer{
+      display: flex;
+      gap: 40px;
+      margin-top: 0px;
+      margin-bottom: 40px;
+     }
+  
+     .plan-head{
+       align-self: flex-start;
+       color: #D8AD5C;
+       word-spacing: -30px;
+       margin: 0px 0px 50px 60px;
+       padding: 0px 0px 0px 100px;
+       font-size: 6rem;
+       font-weight: 900;
+      }
+  
+     .cl{
+       color: #B6751D;
+     }
+  
+     .pricing-container{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+      
+     }
+  
+     .card-layout{
+      margin-top: 20px;
+     }
+  
+     body{
+      background-image: url("./backdrop.png");
+      background-repeat: repeat;
+     }
+    
+     .yt-container{
+      display: flexbox;
+      flex-direction: row;
+      justify-content: center;
+      margin-top: 50px;
+      margin-left: 30%;
+      width: 500px;
+      height: 283px;
+     }
+   

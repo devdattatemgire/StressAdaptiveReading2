@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RelaxaReads</title>
+  <!-- TODO 1: Add the Bootstrap link here. -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
+  <script src="https://cdn.jsdelivr.net/npm/intersection-observer@2.0.0"></script>
+ 
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      function fadeInOnScroll() {
+        const fadeElems = document.querySelectorAll('.animate-on-scroll');
+
+        const options = {
+          rootMargin: '0px',
+          threshold: 0.2  // Adjust the threshold as desired (0.2 means 20% visibility required)
+        };
+
+        const fadeIn = function(entries, observer) {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate');
+              observer.unobserve(entry.target);
+            }
+          });
+        };
+
+        const observer = new IntersectionObserver(fadeIn, options);
+
+        fadeElems.forEach(fadeElem => {
+          observer.observe(fadeElem);
+        });
+      }
+
+      // Initial invocation
+      fadeInOnScroll();
+
+      // Bind to scroll event
+      window.addEventListener('scroll', fadeInOnScroll);
+    });
+
+    document.querySelector('.left-arrow').addEventListener('click', function () {
+  const container = document.querySelector('.flex-container');
+  container.scrollBy({
+    left: -container.offsetWidth,
+    behavior: 'smooth'
+  });
+});
+
+document.querySelector('.right-arrow').addEventListener('click', function () {
+  const container = document.querySelector('.flex-container');
+  container.scrollBy({
+    left: container.offsetWidth,
+    behavior: 'smooth'
+  });
+});
+
+  </script>
+  <style>
+    /* TODO 4: Use flexbox to center the card in the vertical and horizontal center. */
+    /* .flex-container {
+      flex-direction: row;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      gap: 100px;
+      margin-top: 40px;
+    }
+
+  
+
+
+    .cardin {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cardin a {
+      align-self: center;
+    } */
+
+    /* .flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px ;
+  margin-bottom: 0px;
+} */
+
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  padding: 20px 0;
+  margin-top: 35px;
+}
+
+.card {
+  width: 18rem;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card .card-body {
+  position: relative;
+  z-index: 1;
+  color: black;
+  text-align: center;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+}
+
+.card:hover .card-body {
+  opacity: 1;
+}
+
+.card .card-body .cardin {
+  padding: 10px;
+}
+
+.cardin{
+  display: flex ;
+  flex-direction: column;
+}
+
+.card .card-body .cardin a {
+  text-decoration: none;
+  color: white;
+  background-color: #b0883e;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.card .card-body .cardin a:hover {
+  background-color: #7a612c;
+}
+
+
+
+    .hero {
+      margin-left: 80px;
+      margin-right: 10px;
+    }
+
+    .logo {
+      margin: 6px 8px 5px 0px;
+    }
+    .logof{
+      margin-left: 1.5rem;
+    }
+
+    .btn-color {
+      background-color: #D8AD5C;
+      color: #312008;
+    }
+
+    .btn-color:hover {
+      background-color: #b0883e;
+      color: #ffffff;
+    }
+
+    .insta-gradient {
+      background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-bg {
+  background-color: rgba(243, 239, 236, 0.1);
+  backdrop-filter: blur(4px); /* Add the backdrop-filter property */
+  -webkit-backdrop-filter: blur(4px); /* Add the -webkit-backdrop-filter property for Safari */
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-bg .navbar-nav .nav-link {
+  opacity: 0.5; /* Adjust the opacity value as needed */
+}
+
+    /* Fade-in Animation */
+    .fade-in {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease-in-out; /* Adjust the duration as desired */
+    }
+
+    .fade-in.animate {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* plans */
+    .pricing-plan {
+  display: flex;
+  padding: 10px;
+  flex-basis: 300px;
+  height: 40vh;
+  flex-direction: column;
+  gap: 10px;
+    background-color: #e1b96e
+  ;
+  border-radius: 5px;
+  box-shadow: 0 0 200px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.pricing-plan::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px; /* Adjust the height of the colored portion */
+  background-color: #b0883e; /* Specify the desired color */
+  border-radius: 5px 5px 0 0;
+  z-index: 0;
+}
+
+.pricing-plan:hover{
+
+  transform: scale(1.1); /* Add the desired transformation */
+  transition: transform 0.3s ease; /* Specify the transition property and duration */
+  /* transition: cubic-bezier(0.455, 0.03, 0.515, 0.955); */
+}
+
+   li{
+      list-style: none;
+   }
+
+   .plan-button{
+    margin-bottom: 20px;
+    border: none;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: 'Sono', sans-serif ;
+    font-weight: bold;
+    font-size:larger;
+    background-color: #b0883e;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin-top: 0px;
+   }
+   .plan-button:hover {
+  transform: scale(1.1);
+}
+   .plan-price{
+    font-size: 3rem;
+    font-weight: bolder;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   }
+   .plan-title{
+    font-weight: bolder;
+    margin-left: 5px;
+    color: #ffffff;
+    font-size: x-large;
+    align-self: flex-start;
+    position: relative; /* Add position relative to the text container */
+  z-index: 1; /* Bring the text container to the front */
+  
+   }
+   .inner{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    gap: 8px;
+
+   }
+
+
+
+   .outer{
+    display: flex;
+    gap: 40px;
+    margin-top: 0px;
+    margin-bottom: 40px;
+   }
+
+   .plan-head{
+     align-self: flex-start;
+     color: #D8AD5C;
+     word-spacing: -30px;
+     margin: 0px 0px 50px 60px;
+     padding: 0px 0px 0px 100px;
+     font-size: 6rem;
+     font-weight: 900;
+    }
+
+   .cl{
+     color: #B6751D;
+   }
+
+   .pricing-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    
+   }
+
+   .card-layout{
+    margin-top: 20px;
+   }
+
+   body{
+    background-image: url("./backdrop.png");
+    background-repeat: repeat;
+   }
+  
+   .yt-container{
+    display: flexbox;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 50px;
+    margin-left: 30%;
+    width: 500px;
+    height: 283px;
+   }
+ 
+
+    
+  </style>
+</head>
+
+<body >
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/home/dashboard">RelaxaReads</a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" href="/home/dashboard">Home</a>
+                <a class="nav-link" href="/home/read">Read</a>
+                <a class="nav-link" href="/home/project">Progress</a>
+               
+            </div>
+        </div>
+
+        {% if user.is_authenticated %}
+        <!-- If the user is authenticated, show the logout button -->
+        <div class="navbar-nav ms-auto">
+            <a class="nav-link active" href="{% url 'logout' %}">Logout</a>
+        </div>
+        {% else %}
+        <!-- If the user is not authenticated, show the login and signup buttons -->
+        <div class="navbar-nav ms-auto">
+            <a class="nav-link active" href="{% url 'login' %}">Login</a>
+        </div>
+        {% endif %}
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
+
+  <!-- hero -->
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5 hero animate-on-scroll fade-in">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <img src="/static/coverread.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="500" height="500" loading="lazy">
+    </div>
+    <div class="col-lg-6">
+      {% if user.is_authenticated %}
+                    <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-4">Hello, {{ user.username }}, Let's burst your stress today!</h1>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                     <a href="/home/read"><button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Read</button></a> 
+                      <a href="/home/project"><button type="button" class="btn btn-outline-primary btn-lg px-4 btn-gradient" >Progress</button></a>
+                  </div>
+                {% else %}
+                    <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Looks like you have logged out already!</h1>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                      <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Login</button>
+                      
+                  </div>
+                {% endif %}
+      <p class="lead"></p>Welcome to our website!</p>
+      <p class="lead">Experience the power of relaxation as we analyze your stress levels in real time while you read. Embrace calmness with every page, and discover a new way to unwind."✨</p>
+      
+    </div>
+  </div>
+  <hr style="border: none; border-top: 2px solid #312008;  width: 80%;  margin: 0 auto; ">
+
+
+  <!-- card layout -->
+  <div class="card-layout"></div>
+    <div class="animate-on-scroll fade-in">
+      <div style="font-size: 5rem; font-weight: 900; margin-left: 300px;">You <span class="insta-gradient">Choose. </span> You <span class="insta-gradient">Read. </span> </div>
+    </div>
+        <div class="flex-container">
+          <div class="card animate-on-scroll fade-in" style="width: 18rem;">
+            <img src="/static/dm_img.png" class="card-img-top" alt="Tucker Budzyn">
+            <div class="card-body ">
+              <div class="cardin">
+                <h5 class="card-title">Data Mining</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="/home/read/dm" class="btn" style="border: none; background-color: #6d1e8f;">Read</a>
+              </div>
+            </div>
+          </div>
+  
+          <div class="card animate-on-scroll fade-in" style="width: 18rem;">
+            <img src="/static/ml_img.png" class="card-img-top" alt="...">
+            <div class="card-body ">
+              <div class="cardin">
+                <h5 class="card-title">Machine Learning</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="" class="btn" style="border: none; background-color: #6d1e8f;">Read</a>
+              </div>
+            </div>
+          </div>
+  
+          <div class="card animate-on-scroll fade-in" style="width: 18rem;">
+            <img src="/static/ds_img.png" class="card-img-top" alt="Kebin">
+            <div class="card-body ">
+              <div class="cardin">
+                <h5 class="card-title">Data Science</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="" class="btn" style="border: none; background-color: #6d1e8f;">Read</a>
+              </div>  
+            </div>
+          </div>
+
+        </div>
+  </div>
+   
+  <!-- <div class="yt-container">
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/28EV6k9611g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div> -->
+  
+
+
+
+  
+    
+
+
+  
+<!-- footer -->
+<footer class="d-flex flex-wrap justify-content-between align-items-center py-4 mt-4 border-top nav-bg">
+  <div class="col-md-4 d-flex align-items-center">
+    <a href="/" class="mb-2 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+    </a>
+    <span class="mb-2 mb-md-0 text-body-secondary">© 2023 RelaxaReads</span>
+  </div>
+
+  <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+    <li class="ms-4"><a class="text-body-secondary" href="#" ><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+      <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+    </svg></a></li>
+    <li class="ms-4"><a class="text-body-secondary" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+      <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+    </svg></a></li>
+    <li class="ms-4"><a class="text-body-secondary" href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+      <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+    </svg></a></li>
+    <li class="ms-4"></li>
+  </ul>
+</footer>
+
+
+
+
+
+  <!-- Add CSS for fade-in animation -->
+  <!-- <style>
+    .fade-in {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .fade-in.animate {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style> -->
+
+  <!-- Add JavaScript to animate the cards on scroll -->
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+ 
+
+  
+
+</body>
+
+</html>
