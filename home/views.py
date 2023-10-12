@@ -14,6 +14,21 @@ def contact(request):
 @login_required(login_url='login')
 def project(request):
     return render(request, 'project.html')
+@login_required(login_url='login')
+def index(request):
+    return render(request, 'index.html')
+@login_required(login_url='login')
+def dm(request):
+    return render(request, 'dm.html')
+@login_required(login_url='login')
+def clfn(request):
+    return render(request, 'clfn.html')
+@login_required(login_url='login')
+def clfn_easy(request):
+    return render(request, 'clfn_easy.html')
+
+
+
 
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout

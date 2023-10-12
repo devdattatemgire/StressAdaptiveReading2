@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-yr1b53vun7%5z$$)o3l!r16b&#*b!a%glf87mjoh7*s3sl-js0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.2.5']
+ALLOWED_HOSTS =  ['*']
+
 
 
 # Application definition
@@ -38,10 +39,25 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
+    'django_extensions',
+    'home',
     
 ]
 
-STATIC_URL = 'static/'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('192.168.2.4', 6379)],
+        },
+    },
+}
+
+# Set ASGI application
+ASGI_APPLICATION = 'portfolio.routing.application'
+
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MIDDLEWARE = [
@@ -52,10 +68,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     
     
    
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
+
 
 ROOT_URLCONF = 'portfolio.urls'
 

@@ -1,0 +1,30 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raspberry Pi GPIO Control</title>
+</head>
+<body>
+    <button onclick="controlPin(17, 'on')">Turn On</button>
+    <button onclick="controlPin(17, 'off')">Turn Off</button>
+
+    <script>
+        const socket = new WebSocket('ws://192.168.2.5:8000/ws/control/');
+
+        socket.onopen = () => {
+            console.log('WebSocket connection established.');
+        };
+
+        function controlPin(pin, action) {
+            const data = {
+                pin: pin,
+                action: action
+            };
+
+            socket.send(JSON.stringify(data));
+        }
+    </script>
+</body>
+</html>

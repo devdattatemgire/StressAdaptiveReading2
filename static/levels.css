@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('bg2.jpg'); /* Replace with your background image */
+    background-size: cover;
+   /* background-blur: 10px; Add a blur effect to the background */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.container {
+    position: relative;
+}
+
+.content {
+    background-color: rgba(255, 255, 255,1); /* Semi-transparent white background */
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    
+    
+}
+
+.rounded-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+}
+
+#l1{
+    font-size:30px
+}
+#l2{
+    font-size:30px
+}
+#l3{
+    font-size:30px
+}
+
+
+
+
+.rounded-button {
+    background-color: #007BFF; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.rounded-button:hover {
+    background-color: #0056b3; /* Button background color on hover */
+}
+

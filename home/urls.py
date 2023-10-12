@@ -8,6 +8,10 @@ urlpatterns = [
     path('read/', views.read, name='read'),
     path('project/', views.project, name='project'),
     path('contact/', views.contact, name='contact'),
+    path('read/dm/', views.dm, name='dm'),
+    path('read/dm/classification', views.clfn, name='clfn'),
+    path('read/dm/classification/easy', views.clfn_easy, name='clfn_easy'),
+  
 
     
 ]
