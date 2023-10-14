@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_extensions',
     'home',
+    'channels',
     
 ]
 
@@ -55,7 +56,7 @@ CHANNEL_LAYERS = {
 }
 
 # Set ASGI application
-ASGI_APPLICATION = 'portfolio.routing.application'
+ASGI_APPLICATION = 'portfolio.asgi.application'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
